@@ -1,5 +1,5 @@
 import { RiMenu2Fill } from "react-icons/ri";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import './navbar.css'
 
 const Navbar = () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn text-2xl bg-linear-to-b from-green-400 to-green-800 text-white">Login</a>
+          <Link to='/login' className="btn text-2xl bg-linear-to-b from-green-400 to-green-800 text-white">Login</Link>
         </div>
       </div>
     </nav>
