@@ -5,6 +5,7 @@ import AddHabit from "../pages/AddHabit";
 import MyHabits from "../pages/MyHabits";
 import PublicHabits from "../pages/PublicHabits";
 import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
             {path:'myhabits', Component:MyHabits},
             {path:'publichabits', Component:PublicHabits},
             {path:'login', Component:Login},
+            {path:'signup', Component:Signup},
         ]
     }
 ])

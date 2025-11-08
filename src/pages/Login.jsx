@@ -110,9 +110,9 @@ const Login = () => {
             </button>
           </div>
           <p className="mt-5 text-lg">
-            New to the website? Please{" "}
-            <Link to="/register" className="text-blue-600 underline">
-              Register
+            New to the website? Please {" "}
+            <Link to="/signup" className="text-blue-600 underline">
+              Signup
             </Link>
           </p>
         </form>
