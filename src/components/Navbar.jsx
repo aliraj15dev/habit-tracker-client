@@ -6,7 +6,6 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { user, loading, logoutUser, setUser } = use(AuthContext);
-  console.log(user);
 
   const links = (
     <>
@@ -52,7 +51,7 @@ const Navbar = () => {
           </div>
           <img className="w-20 h-15" src="/Logo.jpg" alt="" />
         </div>
-        
+
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 text-xl">{links}</ul>
         </div>

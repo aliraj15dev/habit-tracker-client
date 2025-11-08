@@ -6,14 +6,22 @@ import MyHabits from "../pages/MyHabits";
 import PublicHabits from "../pages/PublicHabits";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path:'/', Component:RootLayout,
         children:[
             {index:true, Component:Home},
-            {path:'addhabit', Component:AddHabit},
-            {path:'myhabits', Component:MyHabits},
+            {
+                path:'addhabit',
+                element:<PrivateRoute><AddHabit></AddHabit></PrivateRoute>
+
+            },
+
+            {
+                path:'myhabits',
+                element:<PrivateRoute><MyHabits></MyHabits></PrivateRoute>},
             {path:'publichabits', Component:PublicHabits},
             {path:'login', Component:Login},
             {path:'signup', Component:Signup},
