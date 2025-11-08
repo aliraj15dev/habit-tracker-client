@@ -49,7 +49,9 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <img className="w-20 h-15" src="/Logo.jpg" alt="" />
+          <Link to="/">
+            <img className="w-20 h-15" src="/Logo.jpg" alt="" />
+          </Link>
         </div>
 
         <div className="navbar-center hidden md:flex">
@@ -61,17 +63,27 @@ const Navbar = () => {
             <span className="loading loading-spinner text-primary"></span>
           ) : user ? (
             <div className="flex items-center gap-2">
-                <img
-                  className="rounded-full w-10 cursor-pointer"
-                  src={user.photoURL}
-                  alt="User"
-                />
-              <button
-                onClick={handleLogOut}
-                className="btn text-2xl bg-linear-to-b from-green-400 to-green-800 text-white"
-              >
-                Logout
-              </button>
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="m-1">
+                  <img
+                    className="rounded-full w-10 cursor-pointer"
+                    src={user.photoURL}
+                    alt="User"
+                  />
+                </div>
+                <div tabIndex="-1"
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-3"
+                >
+                  <h3 className="text-xl">{user.displayName}</h3>
+                  <p>{user.email}</p>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn text-2xl bg-linear-to-b from-green-400 to-green-800 text-white"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="navbar-end">
