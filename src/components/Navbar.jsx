@@ -1,12 +1,14 @@
+import { RiMenu2Fill } from "react-icons/ri";
 import { NavLink } from "react-router";
+import './navbar.css'
 
 const Navbar = () => {
 
     const links = <>
-    <li><NavLink>Home</NavLink></li>
-    <li><NavLink>Add habit</NavLink></li>
-    <li><NavLink>My Habits</NavLink></li>
-    <li><NavLink>Browse Public Habits</NavLink></li>
+    <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/addhabit'>Add habit</NavLink></li>
+    <li><NavLink to='/myhabits'>My Habits</NavLink></li>
+    <li><NavLink to='/publichabits'>Browse Public Habits</NavLink></li>
     </>
 
   return (
@@ -14,29 +16,15 @@ const Navbar = () => {
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
+            <div tabIndex={0} role="button" className="btn btn-ghost text-4xl md:hidden">
+              <RiMenu2Fill />
             </div>
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >{links}</ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <img className="w-20 h-15" src="/Logo.jpg" alt="" />
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1 text-xl">
@@ -44,7 +32,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <a className="btn text-2xl bg-linear-to-b from-green-400 to-green-800 text-white">Login</a>
         </div>
       </div>
     </nav>
