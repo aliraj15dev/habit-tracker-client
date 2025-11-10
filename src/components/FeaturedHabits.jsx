@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 
 const FeaturedHabits = ({userHabit}) => {
-    const {image,description,user_name } = userHabit
+    const {image,description,userName } = userHabit
 
     return (
         <div className="p-4 rounded-lg border-2 border-gray-200 space-y-3">
@@ -13,7 +13,7 @@ const FeaturedHabits = ({userHabit}) => {
           />
         </figure>
         <div className="text-xl font-bold">
-          <h3>{user_name}</h3>
+          <h3>{userName}</h3>
         </div>
         <div className="">
           <h2>{description}</h2>

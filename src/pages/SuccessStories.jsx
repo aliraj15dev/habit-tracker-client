@@ -7,7 +7,7 @@ const SuccessStories = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="my-20 px-6 text-center bg-linear-to-r from-purple-50 to-blue-50 py-16"
+      className="mt-20 px-6 text-center bg-linear-to-r from-purple-50 to-blue-50 py-16"
     >
       <h2 className="text-3xl font-bold mb-10">💬 Success Stories</h2>
       <div className="grid md:grid-cols-3 gap-6">

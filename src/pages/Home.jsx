@@ -11,7 +11,6 @@ const userHabitsPromise = fetch("http://localhost:3000/userHabits").then(
 
 const Home = () => {
   const userHabits = use(userHabitsPromise);
-  console.log(userHabits);
   return (
     <>
       <Banner />
@@ -23,8 +22,8 @@ const Home = () => {
         </div>
         <WhyBuildHabits />
         <HowItWorks />
-        <SuccessStories />
       </div>
+        <SuccessStories />
     </>
   );
 };
