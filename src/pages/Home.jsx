@@ -6,7 +6,7 @@ import HowItWorks from "./HowItWorks";
 import SuccessStories from "./SuccessStories";
 import axios from "axios";
 
-const userHabitsPromise = axios.get("http://localhost:3000/userHabits");
+const userHabitsPromise = axios.get("http://localhost:3000/featuredHabits");
 
 const Home = () => {
   const userHabits = use(userHabitsPromise).data;

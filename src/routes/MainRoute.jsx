@@ -34,8 +34,7 @@ const router = createBrowserRouter([
         )
       },
       { path: "publichabits",
-        Component: PublicHabits,
-        loader:()=>fetch()
+        Component: PublicHabits
       },
       { path: "login", Component: Login },
       { path: "signup", Component: Signup },
