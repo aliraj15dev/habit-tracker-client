@@ -33,7 +33,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         )
       },
-      { path: "publichabits", Component: PublicHabits },
+      { path: "publichabits",
+        Component: PublicHabits,
+        loader:()=>fetch()
+      },
       { path: "login", Component: Login },
       { path: "signup", Component: Signup },
       { path: "viewdetails", element: (
