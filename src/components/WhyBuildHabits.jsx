@@ -1,4 +1,3 @@
-import React from "react";
 import { FaBullseye, FaSmile, FaClock, FaBrain } from "react-icons/fa";
 
 const WhyBuildHabits = () => {

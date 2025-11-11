@@ -38,7 +38,9 @@ const router = createBrowserRouter([
       },
       { path: "login", Component: Login },
       { path: "signup", Component: Signup },
-      { path: "viewdetails", element: (
+      { path: "viewdetails/:id",
+        loader:({params})=>fetch(`http://localhost:3000/viewdetails/${params.id}`),
+        element: (
           <PrivateRoute>
             <ViewDetails></ViewDetails>
           </PrivateRoute>

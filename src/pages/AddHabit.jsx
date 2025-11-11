@@ -12,10 +12,10 @@ const AddHabit = () => {
     setLoading(true);
 
     const form = e.target;
-    const title = form.title.value;
+    const habitTitle = form.title.value;
     const description = form.description.value;
     const category = form.category.value;
-    const time = form.time.value;
+    const reminderTime = form.time.value;
     const imageFile = form.image.files[0];
 
     let uploadedImage = "";
@@ -34,10 +34,10 @@ const AddHabit = () => {
     }
 
     const newHabit = {
-      title,
+      habitTitle,
       description,
       category,
-      reminderTime: time,
+      reminderTime: reminderTime,
       image: uploadedImage,
       userEmail: user?.email,
       userName: user?.displayName,
