@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../pages/ViewDetails";
 import ErrorPage from "../pages/ErrorPage";
+import UpdateHabit from "../pages/UpdateHabit";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyHabits></MyHabits>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "updateHabit/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateHabit></UpdateHabit>
           </PrivateRoute>
         )
       },

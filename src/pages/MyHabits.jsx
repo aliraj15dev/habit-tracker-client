@@ -2,6 +2,7 @@ import { use, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { CiBookmarkCheck, CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router";
 
 const MyHabits = () => {
   const { user } = use(AuthContext);
@@ -12,12 +13,11 @@ const MyHabits = () => {
       fetch(`http://localhost:3000/featuredHabits?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setMyHabits(data);
         });
     }
   }, [user?.email]);
-  
+
   const handleDelete = (id) => {
     fetch(`http://localhost:3000/userHabits/${id}`, {
       method: "DELETE",
@@ -51,10 +51,10 @@ const MyHabits = () => {
                 <td>{habit.currentStreak || 0} days</td>
                 <td>{habit.reminderTime}</td>
                 <td className="flex gap-2">
-                  <button onClick={()=>handelUpdate(habit._id)}
+                  <Link to={`/updateHabit/${habit._id}`}
                    className="flex items-center gap-2 text-violet-500 btn bg-transparent border-violet-400">
                     <CiEdit /> Update
-                  </button>
+                  </Link>
                   <button
                     onClick={() => handleDelete(habit._id)}
                     className="flex items-center gap-2 text-red-500 btn bg-transparent border-red-400"
