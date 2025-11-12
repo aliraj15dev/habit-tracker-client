@@ -53,6 +53,7 @@ const UpdateHabit = () => {
       <p className="text-center">Loading habit data...</p>
   }
 
+  console.log(habit)
   return (
     <motion.div
       className="max-w-lg mx-auto my-12 bg-base-100 shadow-xl p-8 rounded-2xl"
@@ -100,7 +101,7 @@ const UpdateHabit = () => {
         <div>
           <label className="font-semibold">Reminder Time</label>
           <input
-            type="time"
+            type="datetime-local"
             name="time"
             defaultValue={habit?.reminderTime}
             className="input input-bordered w-full"
@@ -113,7 +114,7 @@ const UpdateHabit = () => {
             type="text"
             name="image"
             className="file-input file-input-bordered w-full"
-            defaultValue={user.photoURL}
+            defaultValue={habit?.image}
           />
         </div>
 

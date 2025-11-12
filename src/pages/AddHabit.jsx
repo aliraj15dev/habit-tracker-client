@@ -101,9 +101,8 @@ const AddHabit = () => {
         <div>
           <label className="font-semibold">Reminder Time</label>
           <input
-            type="time"
+            type="datetime-local"
             name="time"
-            required
             className="input input-bordered w-full"
           />
         </div>
