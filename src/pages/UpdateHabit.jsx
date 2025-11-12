@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const UpdateHabit = () => {
   const { id } = useParams();
   const { user } = use(AuthContext);
-  const [habit, setHabit] = useState([]);
+  const [habit, setHabit] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -49,6 +49,10 @@ const UpdateHabit = () => {
     navigate("/myHabits");
   };
 
+  if(!habit){
+      <p className="text-center">Loading habit data...</p>
+  }
+
   return (
     <motion.div
       className="max-w-lg mx-auto my-12 bg-base-100 shadow-xl p-8 rounded-2xl"
@@ -82,7 +86,7 @@ const UpdateHabit = () => {
           <label className="font-semibold">Category</label>
           <select
             name="category"
-            defaultValue={habit.category}
+            defaultValue={habit?.category}
             className="select select-bordered w-full"
           >
             <option>Morning</option>
@@ -98,7 +102,7 @@ const UpdateHabit = () => {
           <input
             type="time"
             name="time"
-            defaultValue={habit.reminderTime}
+            defaultValue={habit?.reminderTime}
             className="input input-bordered w-full"
           />
         </div>
