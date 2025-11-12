@@ -52,8 +52,7 @@ const UpdateHabit = () => {
   if(!habit){
       <p className="text-center">Loading habit data...</p>
   }
-
-  console.log(habit)
+  
   return (
     <motion.div
       className="max-w-lg mx-auto my-12 bg-base-100 shadow-xl p-8 rounded-2xl"

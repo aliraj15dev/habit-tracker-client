@@ -7,7 +7,7 @@ const FeaturedHabits = ({userHabit}) => {
     return (
         <div className="p-4 rounded-lg border-2 border-gray-200 space-y-3">
         <figure className="bg-gray-200 p-4 rounded-xl">
-          {image && <img className="w-full" src={image} alt="Habit Image"/>}
+          {image && <img className="w-full h-40" src={image} alt="Habit Image"/>}
 
         </figure>
         <div className="text-xl font-bold">
