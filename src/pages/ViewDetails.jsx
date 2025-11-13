@@ -7,7 +7,7 @@ const ViewDetails = () => {
   const [habit, setHabit] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/userHabits/${id}`)
+    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`)
       .then((res) => res.json())
       .then((data) => setHabit(data))
       .catch((err) => console.error("Error fetching habit:", err));

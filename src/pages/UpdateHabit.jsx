@@ -12,7 +12,7 @@ const UpdateHabit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/userHabits/${id}`)
+    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setHabit(data);
@@ -38,7 +38,7 @@ const UpdateHabit = () => {
       userName: habit.userName,
     };
 
-    await fetch(`http://localhost:3000/userHabits/${id}`, {
+    await fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedHabit),
@@ -52,7 +52,7 @@ const UpdateHabit = () => {
   if(!habit){
       <p className="text-center">Loading habit data...</p>
   }
-  
+
   return (
     <motion.div
       className="max-w-lg mx-auto my-12 bg-base-100 shadow-xl p-8 rounded-2xl"

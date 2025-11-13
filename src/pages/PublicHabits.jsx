@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import PublicHabit from "./PublicHabit";
 
 const PublicHabits = () => {
@@ -8,8 +7,9 @@ const PublicHabits = () => {
   const [selectedCategory, setSelectedCategory] = useState("AllCategory");
 
   useEffect(() => {
-    axios.get("http://localhost:3000/userHabits")
-      .then(res => setPublicHabits(res.data))
+    fetch("https://habit-tracker-server-11vz.onrender.com/userHabits")
+      .then(res => res.json())
+      .then(data=>setPublicHabits(data))
       .catch(err => console.log(err));
   }, []);
 

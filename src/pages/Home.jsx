@@ -3,13 +3,12 @@ import Banner from "../components/Banner";
 import WhyBuildHabits from "./../components/WhyBuildHabits";
 import HowItWorks from "./HowItWorks";
 import SuccessStories from "./SuccessStories";
-import axios from "axios";
 import FeaturedHabits from "./FeaturedHabits";
 
-const userHabitsPromise = axios.get("http://localhost:3000/featuredHabits");
+const userHabitsPromise = fetch("https://habit-tracker-server-11vz.onrender.com/featuredHabits").then(res=>res.json());
 
 const Home = () => {
-  const userHabits = use(userHabitsPromise).data;
+  const userHabits = use(userHabitsPromise);
   return (
     <>
       <Banner />

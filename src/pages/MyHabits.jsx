@@ -10,7 +10,7 @@ const MyHabits = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/featuredHabits?email=${user.email}`)
+      fetch(`https://habit-tracker-server-11vz.onrender.com/featuredHabits?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setMyHabits(data))
         .catch((err) => console.log(err));
@@ -18,7 +18,7 @@ const MyHabits = () => {
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/userHabits/${id}`, { method: "DELETE" })
+    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`, { method: "DELETE" })
       .then((res) => res.json())
       .then(() =>
         setMyHabits((prev) => prev.filter((habit) => habit._id !== id))
@@ -26,7 +26,7 @@ const MyHabits = () => {
   };
 
   const handleMarkComplete = (id) => {
-    fetch(`http://localhost:3000/userHabits/${id}/complete`, {
+    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}/complete`, {
       method: "PATCH",
     })
       .then((res) => res.json())

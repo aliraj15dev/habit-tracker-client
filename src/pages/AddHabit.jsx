@@ -43,7 +43,7 @@ const AddHabit = () => {
       userName: user?.displayName,
     };
 
-    await fetch("http://localhost:3000/addedHabit", {
+    await fetch("https://habit-tracker-server-11vz.onrender.com/addedHabit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newHabit),
