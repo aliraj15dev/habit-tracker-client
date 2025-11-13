@@ -3,6 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { CiBookmarkCheck, CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router";
+import toast from "react-hot-toast";
 
 const MyHabits = () => {
   const { user } = use(AuthContext);
@@ -18,12 +19,47 @@ const MyHabits = () => {
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`, { method: "DELETE" })
-      .then((res) => res.json())
-      .then(() =>
-        setMyHabits((prev) => prev.filter((habit) => habit._id !== id))
-      );
-  };
+  toast(
+    (t) => (
+      <div className="flex flex-col space-y-2">
+        <p>Are you sure you want to delete this habit?</p>
+        <div className="flex justify-end space-x-2">
+          <button
+            onClick={() => {
+              fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`, {
+                method: "DELETE",
+              })
+                .then((res) => res.json())
+                .then(() => {
+                  setMyHabits((prev) => prev.filter((habit) => habit._id !== id));
+                  toast.success("Habit deleted successfully!");
+                })
+                .catch(() => toast.error("Failed to delete habit!"))
+                .finally(() => toast.dismiss(t.id));
+            }}
+            className="btn btn-sm btn-error text-white"
+          >
+            Yes
+          </button>
+
+          <button
+            onClick={() => {
+              toast.dismiss(t.id);
+              toast("Delete cancelled");
+            }}
+            className="btn btn-sm"
+          >
+            No
+          </button>
+        </div>
+      </div>
+    ),
+    {
+      duration: 8000,
+      position: "top-center",
+    }
+  );
+};
 
   const handleMarkComplete = (id) => {
     fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}/complete`, {
@@ -40,10 +76,10 @@ const MyHabits = () => {
             )
           );
         } else {
-          alert(data.message);
+          toast.error(data.message);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error(err));
   };
 
   return (

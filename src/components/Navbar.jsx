@@ -6,6 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { user, loading, logoutUser, setUser } = use(AuthContext);
+  console.log(user?.photoURL)
 
   const links = (
     <>
@@ -65,11 +66,11 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="m-1">
-                  <img
+                  {user?.photoURL?<img
                     className="rounded-full w-10 cursor-pointer"
-                    src={user.photoURL}
+                    src={user?.photoURL}
                     alt="User"
-                  />
+                  />:<span className="loading loading-spinner"></span>}
                 </div>
                 <div tabIndex="-1"
                   className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-3"

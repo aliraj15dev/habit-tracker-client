@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       { path: "login", Component: Login },
       { path: "signup", Component: Signup },
       { path: "viewdetails/:id",
-        loader:({params})=>fetch(`http://localhost:3000/viewdetails/${params.id}`),
+        loader:({params})=>fetch(`https://habit-tracker-server-11vz.onrender.com/viewdetails/${params.id}`),
         element: (
           <PrivateRoute>
             <ViewDetails></ViewDetails>

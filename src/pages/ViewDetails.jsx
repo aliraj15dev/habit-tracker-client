@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const ViewDetails = () => {
   const { id } = useParams();
@@ -10,12 +11,32 @@ const ViewDetails = () => {
     fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}`)
       .then((res) => res.json())
       .then((data) => setHabit(data))
-      .catch((err) => console.error("Error fetching habit:", err));
+      .catch((err) => toast.error(err));
   }, [id]);
 
   if (!habit) return <p className="text-center my-12">Loading habit details...</p>;
 
-  const progress = Math.round((habit.completedDays / 30) * 100);
+  const progress = Math.round((habit.currentStreak / 30) * 100);
+
+  const handleMarkComplete = (id) => {
+    fetch(`https://habit-tracker-server-11vz.onrender.com/userHabits/${id}/complete`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.currentStreak !== undefined) {
+          setHabit((prev) => ({
+          ...prev,
+          currentStreak: data.currentStreak,
+          streak: data.currentStreak,
+        }));
+        toast.success("Marked as complete!");
+      } else {
+        toast.error(data.message || "Failed to update streak");
+      }
+    })
+    .catch((err) => toast.error(err.message || "Something went wrong"));
+  };
 
   return (
     <motion.div
@@ -53,7 +74,7 @@ const ViewDetails = () => {
 
       <div className="mt-4">
         <span className="badge badge-success p-3 text-lg">
-          🔥 {habit.streak} Day Streak
+          🔥 {habit.currentStreak} Day Streak
         </span>
       </div>
 
@@ -64,8 +85,7 @@ const ViewDetails = () => {
       </div>
 
       <div className="text-center mt-6">
-        <button
-          onClick={() => alert("Marked as complete!")}
+        <button onClick={() => handleMarkComplete(habit._id)}
           className="btn btn-primary w-full"
         > Mark Complete </button>
       </div>

@@ -50,8 +50,10 @@ const UpdateHabit = () => {
   };
 
   if(!habit){
-      <p className="text-center">Loading habit data...</p>
+    return <p className="text-center">Loading habit data...</p>
   }
+
+  console.log(habit?.category)
 
   return (
     <motion.div

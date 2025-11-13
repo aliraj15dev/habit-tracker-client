@@ -1,28 +1,43 @@
-import React from "react";
+import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <footer>
-      <div className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+      <div className="footer grid sm:grid-cols-2 lg:grid-cols-4 bg-neutral text-neutral-content p-10">
         <div>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <img className="w-20 rounded-2xl" src="/Logo.jpg" alt="" />
+          <h3 className="text-xl font-semibold">Habit Tracker </h3>
         </div>
         <div>
-          <h6 className="footer-title">Company</h6>
+          <h6 className="footer-title">Contact Info</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>
         <div>
-          <h6 className="footer-title">Legal</h6>
+          <h6 className="footer-title">Term & Conditions</h6>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
+        </div>
+        <div>
+          <h6 className="footer-title">Social Media Links</h6>
+          <div className="text-3xl flex gap-5">
+            <a href="link link-hover">
+              <FaFacebookSquare />
+            </a>
+            <a href="link link-hover">
+              <FaXTwitter />
+            </a>
+            <a href="link link-hover">
+              <FaLinkedin />
+            </a>
+            <a href="link link-hover">
+              <FaGithub />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
