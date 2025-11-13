@@ -20,7 +20,7 @@ const PublicHabits = () => {
   });
 
   return (
-    <div className="max-w-9/10 mx-auto mt-10">
+    <div className="max-w-9/10 mx-auto my-10">
       <div className="flex flex-col sm:flex-row md:items-center justify-between mb-5">
         <h2 className="text-3xl font-semibold">
           All Public Habits <span className="text-xl">({filteredHabits.length})</span>

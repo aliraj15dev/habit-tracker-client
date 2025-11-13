@@ -84,7 +84,7 @@ const MyHabits = () => {
 
   return (
     <>
-      <div className="hidden sm:block overflow-x-auto rounded-box border border-base-content/5 bg-base-100 p-4">
+      <div className="max-w-9/10 mx-auto my-10 hidden sm:block overflow-x-auto rounded-box border border-base-content/5 bg-base-100 p-4">
         <table className="table w-full">
           <thead>
             <tr>

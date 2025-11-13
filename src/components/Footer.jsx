@@ -3,8 +3,8 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer grid sm:grid-cols-2 lg:grid-cols-4 bg-neutral text-neutral-content p-10">
+    <footer className="bg-neutral text-neutral-content">
+      <div className="footer grid sm:grid-cols-2 lg:grid-cols-4 max-w-9/10 mx-auto py-10">
         <div>
           <img className="w-20 rounded-2xl" src="/Logo.jpg" alt="" />
           <h3 className="text-xl font-semibold">Habit Tracker </h3>
